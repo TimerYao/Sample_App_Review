@@ -8,4 +8,10 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+
+  # 判断用户是否登录 返回true
+
+  def is_logged_in?
+    !session[:user_id].nil?
+  end
 end
