@@ -20,3 +20,29 @@ User.create!(name: "Example User",
     password: password,
     password_confirmation: password)
 end
+
+users = User.order(:created_at).take(6)
+50.times do
+    content = Faker::Lorem.sentence(5)
+    users.each { |user| user.microposts.create!(content: content) }
+end
+
+
+# Following relationships
+users = User.all
+user = users.first
+following = users[2..50]
+followers = users[3..40]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }
+
+Article.create!(name: "这是第一篇文章",
+        brief_text: "这是简介1"
+    )
+
+30.times do |n|
+    Article.create!(
+    name: "这是第#{n+2}篇文章",
+    brief_text: "这是简介#{n+2}"
+   )
+end

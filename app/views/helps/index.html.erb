@@ -1,0 +1,14 @@
+
+<% provide(:title, 'All Helps') %>
+<h1>All Helps</h1>
+<ul class="helps">
+    <% @helps.each do |help| %>
+        <li>
+            标题：<%=  help.title %>
+            发布者： <%=  help.mobile %>
+            <p>问题：<%=  help.content %></p>
+        </li>
+    <% end %>
+</ul>
+<%= link_to '提问', helpup_path %>
+

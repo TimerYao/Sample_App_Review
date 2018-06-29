@@ -27,7 +27,11 @@ class MicropostTest < ActiveSupport::TestCase
   end
 
   test "content should be most 140 " do
-    @Micropost.content = "a" * 141
+    @micropost.content = "a" * 141
     assert_not @micropost.valid?
+  end
+
+  test "order should be most recent first" do
+    assert_equal microposts(:most_recent), Micropost.first
   end
 end
