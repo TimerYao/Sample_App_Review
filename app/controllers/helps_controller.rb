@@ -1,5 +1,5 @@
 class HelpsController < ApplicationController
-
+  
   def new
     @help = Help.new
   end
@@ -23,4 +23,5 @@ class HelpsController < ApplicationController
     def help_params
         params.require(:help).permit(:title, :mobile, :content)
     end
+    
 end

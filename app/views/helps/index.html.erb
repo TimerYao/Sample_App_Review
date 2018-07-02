@@ -1,14 +1,18 @@
-
 <% provide(:title, 'All Helps') %>
 <h1>All Helps</h1>
 <ul class="helps">
     <% @helps.each do |help| %>
         <li>
-            标题：<%=  help.title %>
-            发布者： <%=  help.mobile %>
-            <p>问题：<%=  help.content %></p>
+            <p> 
+                <span class="helps_title">T：<%=  help.title %></span>
+            </p>
+            <p class="helps_question">Q：<%=  help.content %></p>
+            <p class="helps_time">
+                <span class="helps_author">发布者： <%=  help.mobile %></span>
+                <span class="helps_author"> 发布时间：<%=  help.created_at %></span>
+            </p>
         </li>
     <% end %>
 </ul>
-<%= link_to '提问', helpup_path %>
+<%= link_to '提问', helpup_path, class:'btn btn-primary',style:'color:#fff' %>
 
